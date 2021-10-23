@@ -15,6 +15,8 @@ jobs:
       with:
         server_address: smtp.gmail.com
         server_port: 465
+        username: angel.dev.ops.notifications@gmail.com
+        password: Dev.Ops@*9p_ass
         subject: "New PR from ${{ github.actor }}"
         to: angel.antonov213@gmail.com
         from: GitHub Action basic-pr
