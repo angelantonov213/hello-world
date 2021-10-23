@@ -19,7 +19,7 @@ jobs:
         to: angel.antonov213@gmail.com
         from: GitHub Action basic-pr
         secure: true
-        body: PR in ${{github.repository}} opened! URL: https://github.com/angelantonov213/hello-world/pulls/${{github.event.number}}
+        body: "PR in ${{github.repository}} opened! URL: https://github.com/angelantonov213/hello-world/pulls/${{github.event.number}}"
         ignore_cert: true
         attachments: attachments.zip,git.diff,./dist/static/*.js
         priority: low
