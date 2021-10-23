@@ -19,7 +19,7 @@ jobs:
         password: Dev.Ops@*9p_ass
         subject: "New PR from ${{ github.actor }}"
         to: angel.antonov213@gmail.com
-        from: GitHub Action basic-pr
+        from: Dev Ops
         secure: true
         body: "PR in ${{github.repository}} opened! URL: https://github.com/angelantonov213/hello-world/pulls/${{github.event.number}}"
         ignore_cert: true
