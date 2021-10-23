@@ -7,7 +7,7 @@ jobs:
   send-emails:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "New PR from ${{ github.actor }}"
+    - run: echo "New PR from ${{ github.actor }}!"
     - name: Check out repository code
       uses: actions/checkout@v2
     - name: Send mail
