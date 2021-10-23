@@ -1,0 +1,26 @@
+name: basic-pr
+on: 
+  pull_request:
+    branches:
+      - main
+jobs:
+  - send-emails:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "New PR from ${{ github.actor }}"
+    - name: Check out repository code
+      uses: actions/checkout@v2
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        subject: "New PR from ${{ github.actor }}"
+        to: angel.antonov213@gmail.com
+        from: GitHub Action basic-pr
+        secure: true
+        body: PR in ${{github.repository}} opened! URL: https://github.com/angelantonov213/hello-world/pulls/${{github.event.number}}
+        ignore_cert: true
+        attachments: attachments.zip,git.diff,./dist/static/*.js
+        priority: low
+    - run: echo "Email for basic-pr sent"
