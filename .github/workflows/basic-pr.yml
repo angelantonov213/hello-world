@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  - send-emails:
+  send-emails:
     runs-on: ubuntu-latest
     steps:
     - run: echo "New PR from ${{ github.actor }}"
