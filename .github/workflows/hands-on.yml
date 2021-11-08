@@ -55,9 +55,7 @@ jobs:
           python --version
           pycodestyle *.py
   build:
-      needs: |
-        lint
-        style
+      needs: [lint, style]
       runs-on: ubuntu-latest
       steps:
         - run: echo "Building..."
