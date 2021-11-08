@@ -37,14 +37,18 @@ jobs:
           python lint_test_5.py
   style:
       needs: pre-build
-      runs-on: ubuntu-latest
+      runs-on: ${{ matrix.os }}
+      strategy:
+        matrix:
+          os: [ubuntu-latest]
+          python-version: ['2.7', '3.8', '3.9']
       steps:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
           python --version
@@ -86,3 +90,8 @@ jobs:
         - name: Unit testing
           run: |
             python3 -m doctest factorial.py
+  deploy:
+    needs: [ unit-test ]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello"
